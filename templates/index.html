@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cupcake Shop</title>
+</head>
+<body>
+    <h1>Welcome to our Cupcake Shop!</h1>
+    
+    <h2>Available Cupcakes:</h2>
+    <ul>
+        {% for cupcake in cupcakes %}
+        <li>
+            <a href="{{ url_for('individual_cupcake', name=cupcake['name']) }}">
+                {{ cupcake['name'] }}
+            </a>
+            - ${{ cupcake['price'] }}
+            <a href="{{ url_for('add_cupcake_to_order', name=cupcake['name']) }}">Add to Order</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your Order:</h2>
+    <p>Number of items: {{ items_num }}</p>
+    <p>Total: ${{ order_total }}</p>
+    <a href="{{ url_for('order') }}">View Order</a>
+</body>
+</html>

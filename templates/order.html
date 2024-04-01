@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Order</title>
+</head>
+<body>
+    <h1>Your Order:</h1>
+    
+    <ul>
+        {% for cupcake, price, count in cupcakes %}
+        <li>
+            {{ cupcake }} - ${{ price }} (Quantity: {{ count }})
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
